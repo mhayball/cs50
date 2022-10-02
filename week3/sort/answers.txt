@@ -1,0 +1,11 @@
+sort1 uses: bubble sort
+
+How do you know?: quickest running time when data is sorted (e.g. omega(n))
+
+sort2 uses: merge sort
+
+How do you know?: fastest overall, but times do not vary (e.g. in theta)
+
+sort3 uses: selection sort
+
+How do you know?: times do not vary, also in theta, but slower than sort2
