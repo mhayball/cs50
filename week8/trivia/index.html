@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+            // TODO: Add code to check answers to questions
+
+            // wait until page has loaded
+            document.addEventListener("DOMContentLoaded", function(){
+
+                // All code goes here
+                // Part 1 - if answer is correct, change button background to green. If wrong change background to red. Also show correct/incorrect message.
+
+                // select all part 1 buttons
+                buttons = document.querySelectorAll('.button1');
+
+                // function to reset background colors of buttons
+                function reset_buttons() {
+                    for (let i = 0; i < buttons.length; i++) { buttons[i].style.backgroundColor = '#d9edff'; }
+                }
+
+                // set up listen events for each button, red being correct answer
+                for (let i = 0; i < buttons.length; i++) {
+                    buttons[i].addEventListener('click', function() {
+                        if (buttons[i].id == 'red')
+                        {
+                            document.querySelector('#part1-response').innerHTML = 'Correct!';
+                            reset_buttons();
+                            buttons[i].style.backgroundColor = 'green';
+                        }
+                        else
+                        {
+                            document.querySelector('#part1-response').innerHTML = 'Incorrect';
+                            reset_buttons();
+                            buttons[i].style.backgroundColor = 'red';
+                        }
+                    });
+                }
+
+                // Part 2 - if answer is correct, change text field to green. If wrong change to red. Also show correct/incorrect message.
+                // set up part 2 button
+                check_answer = document.querySelector('.button2');
+                check_answer.addEventListener('click', function() {
+                    text_field = document.querySelector('#colour');
+                    if (text_field.value == 'yellow')
+                    {
+                        document.querySelector('#part2-response').innerHTML = 'Correct!';
+                        text_field.style.backgroundColor = 'green';
+                    }
+                    else
+                    {
+                        document.querySelector('#part2-response').innerHTML = 'Incorrect';
+                        text_field.style.backgroundColor = 'red';
+                    }
+                });
+
+            });
+
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <!-- TODO: Add multiple choice question here -->
+
+                <h3>What is my favourite colour?</h3>
+
+                <button class="button1" id="red">Red</button>
+                <button class="button1" id="green">Green</button>
+                <button class="button1" id="blue">Blue</button>
+
+                <p id="part1-response"></p>
+
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <!-- TODO: Add free response question here -->
+
+                <h3>What is your favourite colour?</h3>
+
+                <input type="text" id="colour">
+                <button class="button2">Check Answer</button>
+
+                <p id="part2-response"></p>
+
+            </div>
+        </div>
+    </body>
+</html>
